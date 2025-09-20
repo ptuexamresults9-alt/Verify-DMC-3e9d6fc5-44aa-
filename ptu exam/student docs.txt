@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Documents</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* Header */
+    .header {
+      background-color: #6b130d;
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 500;
+      padding-left: 40px; /* Increased left space (approx. 3x) */
+    }
+
+    .user-icon {
+      font-size: 20px; /* Smaller icon */
+      cursor: pointer;
+    }
+
+    /* Content */
+    .content {
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    /* Accordion */
+    details {
+      margin-bottom: 12px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    summary {
+      list-style: none;
+      outline: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "▼";
+      float: right;
+      font-size: 14px;
+    }
+
+    details[open] summary::after {
+      content: "▲";
+    }
+
+    .dropdown-item {
+      display: block;
+      margin: 6px 0;
+      padding: 6px 10px;
+      border-radius: 4px;
+      background: #f5f5f5;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      transition: background 0.3s;
+    }
+
+    .dropdown-item:hover {
+      background: #e1e1e1;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      padding: 15px;
+      background: #f1f1f1;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>Welcome to IKGPTU</h1>
+    <span class="material-icons user-icon">account_circle</span>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h2>Student Documents</h2>
+    <hr>
+
+    <!-- Degree Dropdown -->
+    <details>
+      <summary>Degree</summary>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(6).pdf', 'Bachelor_of_Business_Administration.pdf')">
+        Bachelor of Business Administration
+      </a>
+      <!-- Add more degrees here similarly if needed -->
+    </details>
+
+    <!-- DMC Dropdown -->
+    <details>
+      <summary>DMC</summary>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0.pdf', 'BBA-1st-Sem-DMC.pdf')">
+        Bachelor of Business Administration 1st Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(1).pdf', 'BBA-2nd-Sem-DMC.pdf')">
+        Bachelor of Business Administration 2nd Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(2).pdf', 'BBA-3rd-Sem-DMC.pdf')">
+        Bachelor of Business Administration 3rd Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(3).pdf', 'BBA-4th-Sem-DMC.pdf')">
+        Bachelor of Business Administration 4th Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(4).pdf', 'BBA-5th-Sem-DMC.pdf')">
+        Bachelor of Business Administration 5th Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(5).pdf', 'BBA-6th-Sem-DMC.pdf')">
+        Bachelor of Business Administration 6th Sem
+      </a>
+    </details>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Copyright © IK Gujral Punjab Technical University 2025.
+  </div>
+
+  <!-- JS for Direct Download -->
+  <script>
+    function downloadFile(e, url, filename) {
+      e.preventDefault();
+      fetch(url)
+        .then(res => res.blob())
+        .then(blob => {
+          const link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        })
+        .catch(err => alert("Failed to download file: " + err));
+    }
+  </script>
+</body>
+</html>

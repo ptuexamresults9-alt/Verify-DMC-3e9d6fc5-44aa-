@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page with Menu</title>
+
+  <!-- keep your existing CSS here -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* === Hamburger + Sidebar Menu CSS === */
+    #hamburger {
+      width: 22px !important;        /* 20% smaller */
+      height: 18px !important;       /* 20% smaller */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #6d1910;           /* dark red background */
+      padding: 4px !important;       /* tighter padding */
+      border-radius: 3px;
+      z-index: 9999 !important;      /* always on top */
+    }
+    #hamburger span {
+      display: block;
+      height: 2.5px !important;      /* thinner bars */
+      background: #fff;              /* white bars */
+      border-radius: 2px;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: #fff;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: -260px;
+      transition: left 0.3s ease;
+      z-index: 1500;
+      overflow-y: auto;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .logo {
+      text-align: center;
+      padding: 12px 10px 14px;
+      border-bottom: 1px solid #eee;
+    }
+    .logo img {
+      width: 75px;
+      height: 80px;
+      object-fit: contain;
+    }
+    .menu-list { list-style: none; margin:0; padding:0; }
+    .menu-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+    .menu-link svg {
+      width: 18px;
+      height: 18px;
+      fill: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hamburger Button -->
+  <div id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sidebar Menu -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">
+      <img src="https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/download.gif" alt="Institution logo">
+    </div>
+    <nav aria-label="Main menu">
+      <ul class="menu-list">
+        <li><a class="menu-link" href="announcements.html">Announcements</a></li>
+        <li><a class="menu-link" href="student-documents.html">Student Documents</a></li>
+        <li><a class="menu-link" href="student-profile.html">Student Profile</a></li>
+        <li><a class="menu-link" href="bank-transactions.html">Bank Transactions</a></li>
+        <li><a class="menu-link" href="student-enquiry.html">Student Enquiry</a></li>
+        <li><a class="menu-link" href="re-evaluation-form.html">Re-Evaluation Form</a></li>
+        <li><a class="menu-link" href="answer-sheet-apply.html">Answer Sheet PDF Apply</a></li>
+        <li><a class="menu-link" href="old-question-paper.html">Old Question Paper</a></li>
+        <li><a class="menu-link" href="student-exam-form.html">Student Exam Form</a></li>
+        <li><a class="menu-link" href="upload-photo-signature.html">Upload Photo and Signature</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Profile Content -->
+  <main>
+    <!-- START: Content from Profile.txt -->
+    <div class="<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Documents</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      background-color: #fafafa;
+    }
+
+    /* Header */
+    .header {
+      background-color: #6b130d;
+      color: #fff;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 500;
+      padding-left: 40px; /* Increased left space (approx. 3x) */
+    }
+
+    .user-icon {
+      font-size: 20px; /* Smaller icon */
+      cursor: pointer;
+    }
+
+    /* Content */
+    .content {
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    /* Accordion */
+    details {
+      margin-bottom: 12px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    summary {
+      list-style: none;
+      outline: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "▼";
+      float: right;
+      font-size: 14px;
+    }
+
+    details[open] summary::after {
+      content: "▲";
+    }
+
+    .dropdown-item {
+      display: block;
+      margin: 6px 0;
+      padding: 6px 10px;
+      border-radius: 4px;
+      background: #f5f5f5;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+      transition: background 0.3s;
+    }
+
+    .dropdown-item:hover {
+      background: #e1e1e1;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      padding: 15px;
+      background: #f1f1f1;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>Welcome to IKGPTU</h1>
+    <span class="material-icons user-icon">account_circle</span>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h2>Student Documents</h2>
+    <hr>
+
+    <!-- Degree Dropdown -->
+    <details>
+      <summary>Degree</summary>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(6).pdf', 'Bachelor_of_Business_Administration.pdf')">
+        Bachelor of Business Administration
+      </a>
+      <!-- Add more degrees here similarly if needed -->
+    </details>
+
+    <!-- DMC Dropdown -->
+    <details>
+      <summary>DMC</summary>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0.pdf', 'BBA-1st-Sem-DMC.pdf')">
+        Bachelor of Business Administration 1st Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(1).pdf', 'BBA-2nd-Sem-DMC.pdf')">
+        Bachelor of Business Administration 2nd Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(2).pdf', 'BBA-3rd-Sem-DMC.pdf')">
+        Bachelor of Business Administration 3rd Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(3).pdf', 'BBA-4th-Sem-DMC.pdf')">
+        Bachelor of Business Administration 4th Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(4).pdf', 'BBA-5th-Sem-DMC.pdf')">
+        Bachelor of Business Administration 5th Sem
+      </a>
+      <a class="dropdown-item" href="#" onclick="downloadFile(event, 'https://ptuexamresults9-alt.github.io/Rohit_Sukhija_details/0%20(5).pdf', 'BBA-6th-Sem-DMC.pdf')">
+        Bachelor of Business Administration 6th Sem
+      </a>
+    </details>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Copyright © IK Gujral Punjab Technical University 2025.
+  </div>
+
+  <!-- JS for Direct Download -->
+  <script>
+    function downloadFile(e, url, filename) {
+      e.preventDefault();
+      fetch(url)
+        .then(res => res.blob())
+        .then(blob => {
+          const link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        })
+        .catch(err => alert("Failed to download file: " + err));
+    }
+  </script>
+</body>
+</html>
+">
+      <!-- paste your Profile.txt body content here -->
+    </div>
+    <!-- END: Content from Profile.txt -->
+  </main>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
