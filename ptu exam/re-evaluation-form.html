@@ -72,16 +72,27 @@
       width: 18px;
       height: 18px;
       fill: #555;
-    }
+    }/* add this to your existing <style> block */
+#hamburger.hide {
+  display: none !important;
+}
+
   </style>
 </head>
 <body>
   <!-- Hamburger Button -->
-  <div id="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <div id="hamburger"
+     role="button"
+     aria-controls="sidebar"
+     aria-expanded="false"
+     tabindex="0"
+     onclick="toggleMenu()"
+     onkeydown="if(event.key==='Enter' || event.key===' ') toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 
   <!-- Sidebar Menu -->
   <aside class="sidebar" id="sidebar">
@@ -1828,9 +1839,25 @@ body::backdrop {
   </main>
 
   <script>
-    function toggleMenu(){
-      document.getElementById("sidebar").classList.toggle("active");
+  function toggleMenu(){
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.getElementById("hamburger");
+
+    sidebar.classList.toggle("active");
+
+    const isOpen = sidebar.classList.contains("active");
+    if (isOpen) {
+      // hide the hamburger button visually and update aria
+      hamburger.classList.add("hide");
+      hamburger.setAttribute('aria-expanded', 'true');
+    } else {
+      // show the hamburger again and update aria
+      hamburger.classList.remove("hide");
+      hamburger.setAttribute('aria-expanded', 'false');
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
+
